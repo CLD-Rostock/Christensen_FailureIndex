@@ -57,7 +57,8 @@ class Christensen_Plugin_plugin(AFXForm):
                 sendCommand(openOdbCommand)
                 
             except:
-                print 'Something went wrong with opening the odb.'
+                print('Something went wrong with opening the odb.')
+                pass
             
             dialog2 = christensen_PluginDB.FailureIndex2(self, odbname)
             

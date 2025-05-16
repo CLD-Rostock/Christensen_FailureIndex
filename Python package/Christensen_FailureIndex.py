@@ -1,3 +1,5 @@
+import numpy as np
+
 class Christensen_class:
     """
     A class for evaluating the failure index and failure number based on the Christensen failure criterion.
@@ -32,7 +34,7 @@ class Christensen_class:
     Methods:
     --------
     calc_main():
-        Computes all necessary failure evaluation steps and returns the failure index.
+        Computes the failure index based on the Christensen failure criterion.
     calc_PC():
         Calculates the principal stresses from the stress tensor.
     calc_polar():
@@ -118,8 +120,8 @@ class Christensen_class:
 
         Returns:
         --------
-        float
-            The failure index, indicating the material's failure state based on the applied stress conditions.
+        list
+            [failure_index, Fn] where failure_index is the material's failure state and Fn is the failure number.
         """
 
         # 1. Calculation of the Principal Stresses
@@ -139,8 +141,7 @@ class Christensen_class:
         self.calc_failure_index()
 
         self.calc_fn()
-
-        self.calc_fn()
+        # Return both failure index and Fn for plugin compatibility
         return [self.failure_index, self.Fn]
 
     # 1. Calculation of the Principal Stresses

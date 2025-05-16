@@ -218,9 +218,7 @@ def create_Christensen_field_variable_multiple_materials(odb_name, instance_name
         if mat_name in mat_dict:
             #  7. Get T and C from the material dictionary  
             T = mat_dict[mat_name][0]
-            T = 1
             C = mat_dict[mat_name][1]
-            C = 2
             #  8. Iterate over the elements in the SectionAssignment Object
             for el in sectasobj.region.elements: 
                 #  9. Get stresses at the given element
@@ -378,7 +376,7 @@ def outerMethod(odb_name='kein ODB Name uebergeben', instance_name='kein Instanc
                 elif material_entries[i][0] > material_entries[i][1]:
                     raise ValueError('The Tensile Strength cannot be larger than the Compressive Strength.')
                 else:
-                    mat_dict[material_names[i]] = [float(material_entries[i][0]), float(material_entries[i][0])]
+                    mat_dict[material_names[i]] = [float(material_entries[i][0]), float(material_entries[i][1])]
     
     print('Materialdict', mat_dict, type(mat_dict), type(mat_dict[material_names[0]]))
 
