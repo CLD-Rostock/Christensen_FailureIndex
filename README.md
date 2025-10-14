@@ -52,7 +52,7 @@ This project implements a linear failure index for the Christensen criterion —
 
 📄 The method is described in the paper (under review). If you use this code, please cite:
 ```
-Hach, M., Radtke, A., Weissgraeber, P. (2025). A linear failure index for the Christensen criterion
+HACH, Mathis; RADTKE, Albrecht; WEIßGRAEBER, Philipp. A linear failure index for the Christensen criterion. International Journal of Solids and Structures, 2025, S. 113685.
 ```
 when using this code.
 
