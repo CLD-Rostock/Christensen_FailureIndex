@@ -50,7 +50,7 @@ This project implements a linear failure index for the Christensen criterion —
 2. 🧾 ABAQUS Fortran UMAT subroutine
 3. 🐍 Python module for stress analysis
 
-📄 The method is described in the paper (under review). If you use this code, please cite:
+📄 The method is described in the corresponding IJSS paper. If you use this code, please cite:
 ```
 HACH, Mathis; RADTKE, Albrecht; WEIßGRAEBER, Philipp. A linear failure index for the Christensen criterion. International Journal of Solids and Structures, 2025, S. 113685.
 ```
