@@ -4,7 +4,7 @@
   <img src="https://github.com/cld-rostock/Christensen_FailureIndex/raw/main/img/plot.png" alt="Plot" width="240">
   <br>
   <br>
-  <b>ChriFT</b>
+  <b>Christensen_FailureIndex</b>
   <br>
   <sub><sup>Christensen Failure Theory</sup></sub>
   <br>
@@ -16,9 +16,9 @@
 
 
 <p align="center">
-  <a href="https://github.com/CLD-Rostock/ChriFT/issues">Report a bug</a> · 
-  <a href="https://github.com/CLD-rostock/ChriFt/">Cite the software</a> · 
-  <a href="https://www.cld.uni-rostock.de">Read the paper</a>
+  <a href="https://github.com/CLD-Rostock/Christensen_FailureIndex/issues">Report a bug</a> ·
+  <a href="https://doi.org/10.1016/j.ijsolstr.2025.113685">Cite the software</a> · 
+  <a href="https://doi.org/10.1016/j.ijsolstr.2025.113685">Read the paper</a> .
   <br>
   <br>
   <br>
