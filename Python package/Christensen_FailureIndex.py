@@ -77,7 +77,12 @@ class Christensen_class:
             If the number of stress tensor components is not 3, 4, or 6.
         """
         
-        # Assign material properties
+        # Assign material properties with validation
+        if T <= 0:
+            raise ValueError("Tensile strength T must be positive")
+        if C <= 0:
+            raise ValueError("Compressive strength C must be positive")
+        
         self.T = T
         self.C = C
 
@@ -210,8 +215,14 @@ class Christensen_class:
             )
 
             # Ensure rho is not zero before computing angles
-            if self.rho == 0:
-                raise ValueError("Polar coordinate computation failed: Stresses have to be non-zero")
+            if self.rho <= 1e-15:  # Use small tolerance instead of exact zero
+                self.theta = 0.0
+                self.phi = 0.0
+                self.sin_t = 0.0
+                self.cos_t = 1.0
+                self.sin_p = 0.0
+                self.cos_p = 1.0
+                return
 
             # Compute polar and azimuthal angles
             self.theta = np.arctan2(
@@ -333,8 +344,11 @@ class Christensen_class:
         - If `T / C < 1/2`, the maximum of two failure measures is used.
         - Otherwise, only the ratio of `rho` to `rho_invariant_criterion` determines the failure index.
         """
-        if self.rho_invariant_criterion is not None:
+        if self.rho_invariant_criterion is not None and self.rho_invariant_criterion != 0:
             if self.T / self.C < 1/2:
+                # Check for potential division by zero
+                if self.T == 0:
+                    raise ValueError("Tensile strength cannot be zero for fracture criterion")
                 self.failure_index = max(self.rho / self.rho_invariant_criterion, self.max_ps / self.T)
             else:
                 self.failure_index = self.rho / self.rho_invariant_criterion
