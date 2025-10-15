@@ -30,8 +30,14 @@ class Christensen_class:
                 tensile strength of the material
 
             C: Float
-                tensile strength of the material
+                compressive strength of the material
         """
+        # Validate material properties
+        if T <= 0:
+            raise ValueError("Tensile strength T must be positive")
+        if C <= 0:
+            raise ValueError("Compressive strength C must be positive")
+            
         self.T = T
         self.C = C
 
@@ -49,6 +55,16 @@ class Christensen_class:
             self.S12 = entries_of_stress_tensor[3]
             self.S13 = 0.
             self.S23 = 0.
+            
+        elif len(entries_of_stress_tensor) == 3:
+            self.S11 = entries_of_stress_tensor[0]
+            self.S22 = entries_of_stress_tensor[1]
+            self.S12 = entries_of_stress_tensor[2]
+            self.S33 = 0.
+            self.S13 = 0.
+            self.S23 = 0.
+        else:
+            raise ValueError("The stress tensor has to have 3, 4 or 6 entries")
 
     def calc_main(self):
         
@@ -133,10 +149,13 @@ class Christensen_class:
     def calc_failure_index(self):
         
         # If the stress situation is not one of hydrostostatic pressure or tension for von-Mises like materials
-        if self.rho_invariant_criterion != None: 
+        if self.rho_invariant_criterion != None and self.rho_invariant_criterion != 0: 
 
             # If T/C is smaller then .5, the fracture criterion is relevant
             if self.T/self.C < 1/2:    
+                # Check for potential division by zero
+                if self.T == 0:
+                    raise ValueError("Tensile strength cannot be zero for fracture criterion")
                 self.failure_index = max(self.rho / self.rho_invariant_criterion, self.max_ps / self.T)
     
             # Otherwise, the fracture criterion is not relevant
@@ -154,6 +173,10 @@ class Christensen_class:
         principal_stresses_at_failure[1] = (self.rho / self.failure_index) * self.sin_t * self.sin_p
         principal_stresses_at_failure[2] = (self.rho / self.failure_index) * self.cos_t
         
+        # Check for division by zero
+        if self.C == 0:
+            raise ValueError("Compressive strength cannot be zero for Fn calculation")
+            
         self.Fn = 1./2. * (3*self.T/self.C-(sum(principal_stresses_at_failure)/self.C))
         if self.Fn > 1:
             self.Fn = 1
