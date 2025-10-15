@@ -16,9 +16,10 @@
 
 
 <p align="center">
-  <a href="https://github.com/CLD-Rostock/ChriFT/issues">Report a bug</a> · 
-  <a href="https://github.com/CLD-rostock/ChriFt/">Cite the software</a> · 
-  <a href="https://www.cld.uni-rostock.de">Read the paper</a>
+  <a href="https://github.com/CLD-Rostock/Christensen_FailureIndex/issues">Report a bug via github</a> ·
+  <a href="mailto:mathis.hach@uni-rostock.de">Report a bug via email</a>a> .
+  <a href="https://doi.org/10.1016/j.ijsolstr.2025.113685">Cite the software</a> · 
+  <a href="https://doi.org/10.1016/j.ijsolstr.2025.113685">Read the paper</a> .
   <br>
   <br>
   <br>
