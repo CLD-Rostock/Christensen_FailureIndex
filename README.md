@@ -4,7 +4,7 @@
   <img src="https://github.com/cld-rostock/Christensen_FailureIndex/raw/main/img/plot.png" alt="Plot" width="240">
   <br>
   <br>
-  <b>ChriFT</b>
+  <b>Christensen_FailureIndex</b>
   <br>
   <sub><sup>Christensen Failure Theory</sup></sub>
   <br>
